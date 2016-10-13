@@ -1,0 +1,100 @@
+{% extends "common/base.html" %}
+
+{% block title %}微博{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/wi.css">
+    <script src="/static/script/wb.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="wi-body wi-flex">
+        <div class="wi-body-left wi-1">
+            <div class="wi-user wi-box">
+                hello,
+                {% if user %}
+                    {{ user.username }}
+                {% else %}
+                    游客
+                {% endif %}
+                !
+            </div>
+        </div>
+        <div class="wi-body-middle wi-2">
+            <div class="wi-weibo-post wi-box">
+                {% if user %}
+                <form class="" action="{{ url_for('weibo.add') }}" method="post">
+                    <input id="id-input1" class="wi-input" type="text" name="content" placeholder="说点什么?" required="required">
+                    <div class="wi-submit clearfix">
+                        <button id="id-button" class="wi-button wi-right" type="submit">发布</button>
+                    </div>
+                </form>
+                {% else %}
+                请
+                 <a href="/user">登录/注册</a>
+                {% endif %}
+            </div>
+            {% for w in weibos %}
+            <div class="wi-weibo wi-box">
+                <div class="wi-weibo-username">
+                    <strong>
+                        {{ User.query.get(w.user_id).username }}
+                    </strong>
+                    {{ w.created_time }}
+                </div>
+                <div class="wi-weibo-content">
+                    {% if w.content %}
+                        {{ w.content }}
+                    {% else %}
+                        无内容
+                    {% endif %}
+                </div>
+                <div class="wi-weibo-bottom">
+                    <button class="id-btn-comment">评论</button>
+                </div>
+                <div class="wi-comment hide">
+                    <div class="wi-comment-post">
+                    {% if user %}
+                        <form class="clearfix" action="{{ url_for('weibo.add_comment') }}" method="post">
+                            <input class="wi-left" type="text" name="content" placeholder="评论" required="required">
+                            <input class="hide" type="text" name="weibo_id" value={{ w.id }}>
+                            <button class="wi-right" type="submit">发布评论</button>
+                        </form>
+                    {% else %}
+                        请登录后发表评论
+                    {% endif %}
+                    </div>
+                    {% for c in comments %}
+                    {% if c.weibo_id == w.id %}
+                    <div class="wi-comment-item wi-flex">
+                        <div class="wi-comment-username">
+                            <strong>
+                                {{ User.query.get(c.user_id).username }}
+                            </strong>
+                            <br>
+                            {{ c.created_time }}
+                        </div>
+                        <div class="wi-comment-content">
+                            {% if c.content %}
+                                {{ c.content }}
+                            {% else %}
+                                无内容
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            {% endfor %}
+            <div class="wi-box wi-weibo-end">
+                The End
+            </div>
+        </div>
+        <!-- <div class="wi-body-right wi-1">
+
+        </div> -->
+    </div>{% endblock %}
+

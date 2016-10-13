@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+</head>
+<body>
+    <div>
+        <h1>Todo</h1>
+        <form action={{ url_for('todo.add') }} method="post">
+        <input type="text" placeholder="Add a todo" name="task">
+        <input type="submit" value="Add">
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Task</th>
+                <th>Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t in todos %}
+            <tr>
+                <td>{{ t.id }}</td>
+                <td>{{ t.task }}</td>
+                <td>{{ t.created_time }}</td>
+                <td><a href="{{ url_for('todo.delete', todo_id=t.id) }}">delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</body>
+</html>

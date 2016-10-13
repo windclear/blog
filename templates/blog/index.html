@@ -1,0 +1,41 @@
+{% extends "common/base.html" %}
+
+{% block title %}主页{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+<div class="wi-body">
+        <div class="wi-blog-list">
+            {% for b in blogs %}
+                <div class="wi-blog-cell">
+                    <div class="wi-blog-cell-title">
+                        <a href="{{ url_for('blog.blog_view', blog_id=b.id) }}">
+                            {{ b.title }}
+                        </a>
+                    </div>
+                    <div class="wi-blog-cell-user">
+                        <span>
+                            <a href="{{ url_for('blog.user_index', user_id=b.user_id) }}">
+                                {{ User.query.get(b.user_id).username }}
+                            </a>
+                        </span>
+                        &nbsp;|&nbsp;
+                        <span>{{ time.strftime("%Y.%m.%d", time.localtime(b.created_time)) }}</span>
+                        &nbsp;|&nbsp;
+                        <span>?条评论</span>
+                    </div>
+                    <div class="wi-blog-cell-abstract">
+                        {{ b.abstract }}
+                    </div>
+                    <div class="">
+                        <a class="wi-blog-cell-readall" href="{{ url_for('blog.blog_view', blog_id=b.id) }}">阅读全文 »</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,187 @@
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+body {
+    font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    /*line-height: 2px;*/
+    color: #555;
+    background-color: #fff;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+a:hover {
+    color: #333;
+}
+
+.wi-center {
+    text-align: center;
+}
+.wi-left {
+    float: left;
+}
+
+.wi-right {
+    float: right;
+}
+.wi-header {
+    background-color: #f5f5f5;
+}
+
+.wi-header-inner {
+    padding: 25px 0px 20px;
+    margin: 0 auto;
+    line-height: 2;
+    width: 60%;
+}
+
+.wi-title {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #222;
+    /*border-top: 2px solid #222;*/
+    /*border-bottom: 2px solid #222;*/
+}
+
+.wi-nav {
+    margin: auto;
+}
+
+.wi-nav-item {
+    display: inline-block;
+}
+.wi-nav-item a {
+    padding: 5px 10px;
+    border-radius: 2px;
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+}
+.wi-nav-item a:hover {
+    background-color: #e1e1e1;
+    color: #222;
+}
+
+.wi-body {
+    margin: auto;
+    padding: 80px 100px;
+    width: 60%;
+}
+.wi-blog-list {
+    /*margin: 20px 110px;*/
+}
+.wi-blog-cell {
+    margin-bottom: 120px;
+}
+.wi-blog-cell-title {
+    font-size: 26px;
+    font-weight: 400;
+    color: #555;
+}
+.wi-blog-cell-title a {
+    border-bottom: 0px;
+}
+.wi-blog-cell-title a:hover {
+    border-bottom: 2px solid #222;
+}
+.wi-blog-cell-user {
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.wi-blog-cell-abstract {
+    margin-bottom: 25px;
+}
+.wi-blog-cell-readall {
+    border-bottom: 2px solid #222;
+}
+.wi-blog-cell-article {
+    margin: 40px 0;
+}
+.wi-blog-cell-content {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-top: 2px dashed #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.wi-comment-list {
+    padding: 0 20px;
+}
+.wi-comment-list-title {
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+.wi-comment-cell {
+    border-top: 1px solid #ddd;
+    padding: 10px 20px;
+}
+.wi-comment-add {
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+}
+
+.wi-comment-content {
+    height: 60px;
+    width: 100%;
+    resize: none;
+}
+.wi-comment-cell-user {
+    padding: 7px 0;
+    font-size: 11px;
+    color: #ccc;
+}
+.wi-comment-btn {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    color: #60676d;;
+    font-size: 16px;
+}
+.wi-box {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 20px auto;
+    text-align: center;
+    width: 200px;
+}
+.wi-box input {
+    display: block;
+    margin: 5px auto;
+}
+.wi-box button {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    color: #60676d;;
+    font-size: 16px;
+    margin: 5px auto;
+}
+.wi-blog-add input {
+    display: block;
+    margin: 5px auto;
+}
+.wi-blog-add button {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    color: #60676d;;
+    font-size: 16px;
+    margin: 5px auto;
+}
+.wi-footer {
+    background-color: #f5f5f5;
+    padding: 10px 100px;
+}
+.wi-footer-item {
+    margin: 10px auto;
+    width: 60%;
+}

@@ -1,0 +1,11 @@
+{% extends "common/base.html" %}
+
+{% block title %}主页{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+<h1>Hi, {% if user %}{{ user.username }}{% else %} 游客 {% endif %}欢迎来到这里</h1>
+{% endblock %}
